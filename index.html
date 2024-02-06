@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Currency Converter</title>
+
+  <style>
+/* CSS styling */
+#result {
+    font-weight: bold;
+  }
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: rgb(220, 237, 252);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px; /* Add margin between title and forms */
+  border-bottom: 2px solid #ccc; /* Add a line between title and forms */
+}
+
+/* Adjust the container */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+  background-color: #f2f2f2; /* Change the background color of the form group */
+  padding: 10px; /* Add padding to the form group */
+  border-radius: 5px; /* Add border radius to the form group */
+}
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+  <h1>Currency Converter</h1>
+
+  <form id="currencyForm">
+    <div class="form-group">
+      <label for="amount">Enter amount:</label>
+      <input type="number" id="amount" placeholder="0.00" required>
+    </div>
+
+    <div class="form-group">
+      <label for="fromCurrency">From:</label>
+      <select id="fromCurrency">
+        <option value="">Select One</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="CZK">CZK</option>
+        <option value="AED">AED</option>
+        <option value="ARS">ARS</option>
+        <option value="AUD">AUD</option>
+        <option value="BGN">BGN</option>
+        <option value="BRL">BRL</option>
+        <option value="BSD">BSD</option>
+        <option value="CAD">CAD</option>
+        <option value="CHF">CHF</option>
+        <option value="CLP">CLP</option>
+        <option value="CNY">CNY</option>
+        <option value="COP">COP</option>
+        <option value="DKK">DKK</option>
+        <option value="DOP">DOP</option>
+        <option value="EGP">EGP</option>
+        <option value="FJD">FJD</option>
+        <option value="GBP">GBP</option>
+        <option value="GTQ">GTQ</option>
+        <option value="HKD">HKD</option>
+        <option value="HRK">HRK</option>
+        <option value="HUF">HUF</option>
+        <option value="IDR">IDR</option>
+        <option value="ILS">ILS</option>
+        <option value="INR">INR</option>
+        <option value="ISK">ISK</option>
+        <option value="JPY">JPY</option>
+        <option value="KRW">KRW</option>
+        <option value="KZT">KZT</option>
+        <option value="MVR">MVR</option>
+        <option value="MXN">MXN</option>
+        <option value="MYR">MYR</option>
+        <option value="NOK">NOK</option>
+        <option value="NZD">NZD</option>
+        <option value="PAB">PAB</option>
+        <option value="PEN">PEN</option>
+        <option value="PHP">PHP</option>
+        <option value="PKR">PKR</option>
+        <option value="PLN">PLN</option>
+        <option value="PYG">PYG</option>
+        <option value="RON">RON</option>
+        <option value="RUB">RUB</option>
+        <option value="SAR">SAR</option>
+        <option value="SEK">SEK</option>
+        <option value="SGD">SGD</option>
+        <option value="THB">THB</option>
+        <option value="TRY">TRY</option>
+        <option value="TWD">TWD</option>
+        <option value="UAH">UAH</option>
+        <option value="UYU">UYU</option>
+        <option value="ZAR">ZAR</option>
+        <!-- Add more currency options here -->
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label for="toCurrency">To:</label>
+      <select id="toCurrency">
+        <option value="">Select One</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="CZK">CZK</option>
+        <option value="AED">AED</option>
+        <option value="ARS">ARS</option>
+        <option value="AUD">AUD</option>
+        <option value="BGN">BGN</option>
+        <option value="BRL">BRL</option>
+        <option value="BSD">BSD</option>
+        <option value="CAD">CAD</option>
+        <option value="CHF">CHF</option>
+        <option value="CLP">CLP</option>
+        <option value="CNY">CNY</option>
+        <option value="COP">COP</option>
+        <option value="DKK">DKK</option>
+        <option value="DOP">DOP</option>
+        <option value="EGP">EGP</option>
+        <option value="FJD">FJD</option>
+        <option value="GBP">GBP</option>
+        <option value="GTQ">GTQ</option>
+        <option value="HKD">HKD</option>
+        <option value="HRK">HRK</option>
+        <option value="HUF">HUF</option>
+        <option value="IDR">IDR</option>
+        <option value="ILS">ILS</option>
+        <option value="INR">INR</option>
+        <option value="ISK">ISK</option>
+        <option value="JPY">JPY</option>
+        <option value="KRW">KRW</option>
+        <option value="KZT">KZT</option>
+        <option value="MVR">MVR</option>
+        <option value="MXN">MXN</option>
+        <option value="MYR">MYR</option>
+        <option value="NOK">NOK</option>
+        <option value="NZD">NZD</option>
+        <option value="PAB">PAB</option>
+        <option value="PEN">PEN</option>
+        <option value="PHP">PHP</option>
+        <option value="PKR">PKR</option>
+        <option value="PLN">PLN</option>
+        <option value="PYG">PYG</option>
+        <option value="RON">RON</option>
+        <option value="RUB">RUB</option>
+        <option value="SAR">SAR</option>
+        <option value="SEK">SEK</option>
+        <option value="SGD">SGD</option>
+        <option value="THB">THB</option>
+        <option value="TRY">TRY</option>
+        <option value="TWD">TWD</option>
+        <option value="UAH">UAH</option>
+        <option value="UYU">UYU</option>
+        <option value="ZAR">ZAR</option>
+        <!-- Add more currency options here -->
+      </select>
+    </div>
+
+    <button type="submit">Convert</button>
+    <button type="reset">Reset</button>
+
+  </form>
+  
+  <br><br>
+  <div id="result"></div>
+  </div>
+
+  <script>
+  // Prevent the form from submitting
+document.getElementById('currencyForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  // Get the input values
+  var fromCurrency = document.getElementById('fromCurrency').value;
+  var toCurrency = document.getElementById('toCurrency').value;
+  var amount = parseFloat(document.getElementById('amount').value);
+
+    // Fetch the exchange rates from the API
+    fetch('https://v6.exchangerate-api.com/v6/7afdb96490531b78462c8611/latest/' + fromCurrency)
+      .then(response => response.json())
+      .then(data => {
+          var exchangeRates = data.conversion_rates;
+          var convertedAmount = (amount / exchangeRates[fromCurrency]) * exchangeRates[toCurrency];
+          document.getElementById('result').innerText = convertedAmount.toFixed(2) + ' ' + toCurrency;
+      })
+      .catch(error => console.error('Error fetching exchange rates:', error));
+});
+
+ // Add event listener for the reset button
+ document.getElementById('currencyForm').addEventListener('reset', function(event) {
+    document.getElementById('result').innerText = ''; // Clear the result
+  });
+
+  </script>
+</body>
+</html>
